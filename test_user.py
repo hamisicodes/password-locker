@@ -15,3 +15,16 @@ class testUser(unittest.TestCase):
         """
         self.assertEqual(self.new_user.username,"Hamisi")
         self.assertEqual(self.new_user.password,"python")
+
+    def test_addUser(self):
+        """
+        test to save user into a file
+
+        """
+        self.new_user.saveUser()
+        self.assertEqual(len(User.users_list),1)
+
+
+
+if __name__ == '__main__':
+    unittest.main()
