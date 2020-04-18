@@ -9,6 +9,9 @@ class testUser(unittest.TestCase):
         """
         self.new_user = User("Hamisi","python")
 
+    def tearDown(self):
+        User.users_list = []
+
     def test_init(self):
         """
         test if the user object is initialized properly
@@ -18,17 +21,32 @@ class testUser(unittest.TestCase):
 
     def test_addUser(self):
         """
-        test to save user into a file
+        test to save user 
 
         """
         self.new_user.saveUser()
         self.assertEqual(len(User.users_list),1)
 
     def test_add_many_users(self):
+        """
+        test to save many users 
+
+        """
         self.new_user.saveUser()
         another_user = User("salim","java")
         another_user.saveUser()
         self.assertEqual(len(User.users_list),2)
+
+    
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
