@@ -10,6 +10,9 @@ class testUser(unittest.TestCase):
         self.new_user = User("Hamisi","python")
 
     def tearDown(self):
+        """
+        TearDown method that perfoms clean up after each test
+        """
         User.users_list = []
 
     def test_init(self):
