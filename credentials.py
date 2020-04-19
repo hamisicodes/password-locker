@@ -9,7 +9,8 @@ class Credential:
     def save_credentials(self):
         Credential.credential_list.append(self)
 
-
+    def delete_credential(self):
+        Credential.credential_list.remove(self)
     
     @classmethod
     def displayCredentials(cls):
