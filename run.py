@@ -35,6 +35,11 @@ def create_password():
 
     return password
 
+def display_credentials():
+    return Credential.displayCredentials()
+
+
+
 def main():
     print('Hello Welcome to the PASSWORD LOCKER APP')
     while True:
@@ -96,7 +101,16 @@ def main():
                         save_credential(create_credential_account(cred_account,cred_username,cred_password))
                         print(f'.......credential for {cred_account} has been added\n...........')
                          
-                        
+                    elif credential_codes == "dc":
+                         if display_credentials():
+                             print('Here is a list of all your credential accounts\n')
+                             print('ACCOUNT\t\t\t USERNAME\t\t\t PASSWORD')
+                             for credential in display_credentials():
+                                 print(f'{credential.account}-----{credential.username}--------{credential.password}')
+
+                         else:
+                             print('\n')
+                             print('You dont seem to have any credentials accounts yet ')
 
 
 
