@@ -47,8 +47,13 @@ def main():
         print('#'*80)
         
         short_code = input().lower().strip()
+        if short_code =='c':
+            username = input('What username should be assigned to your password locker accunt?\n')
+            password = input('Enter password\n')
+            print('Creating Your passwordlocker account.......')
+            save_user(create_user_account(username,password))
         
-        if short_code == 'l':
+        elif short_code == 'l':
 
             username = input('Enter your username\n')
             password = input('Enter your password\n')
