@@ -7,6 +7,9 @@ class test_credential(unittest.TestCase):
 
         self.new_credential = Credential("twitter","twitter001","hamisi")
 
+    def tearDown(self):
+        Credential.credential_list = []
+
     def test_init(self):
        
         self.assertEqual(self.new_credential.password,"twitter001")
