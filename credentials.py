@@ -11,5 +11,10 @@ class Credential:
 
 
     
+    @classmethod
+    def displayCredentials(cls):
+        return cls.credential_list
+
+
         
 

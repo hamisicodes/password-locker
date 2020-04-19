@@ -28,7 +28,7 @@ class test_credential(unittest.TestCase):
         another_credential.save_credentials()
 
         self.assertEqual(len(Credential.credential_list),2)
-
+    
 
 
 
