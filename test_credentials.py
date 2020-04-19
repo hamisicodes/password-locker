@@ -41,6 +41,14 @@ class test_credential(unittest.TestCase):
         self.new_credential.delete_credential()
         self.assertEqual(len(Credential.credential_list),1)
 
+    def test_search_credential(self):
+        self.new_credential.save_credentials()
+        another_credential = Credential("facebook","facebook001","salim")
+        another_credential.save_credentials()
+        found_account = Credential.search_account("facebook")
+        self.assertEqual(found_account.username,another_credential.username)
+
+
 
 if __name__ == '__main__':
     unittest.main()

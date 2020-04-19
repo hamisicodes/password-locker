@@ -16,6 +16,10 @@ class Credential:
     def displayCredentials(cls):
         return cls.credential_list
 
-
+    @classmethod
+    def search_account(cls,name):
+        for credential in cls.credential_list:
+            if credential.account == name:
+                return credential
         
 
