@@ -5,7 +5,7 @@ class test_credential(unittest.TestCase):
 
     def setUp(self):
 
-         self.new_credential = Credential("twitter","twitter001","hamisi")
+        self.new_credential = Credential("twitter","twitter001","hamisi")
 
     def test_init(self):
        
@@ -14,13 +14,17 @@ class test_credential(unittest.TestCase):
         self.assertEqual(self.new_credential.username,"hamisi")
 
     def test_save_credentials(self):
-        self.new_credential.savecredential()
+        self.new_credential.save_credentials()
 
         self.assertEqual(len(Credential.credential_list),1)
     
 
+    def test_save_multiple_credentials(self):
+        self.new_credential.save_credentials()
+        another_credential = Credential("facebook","facebook001","salim")
+        another_credential.save_credentials()
 
-
+        self.assertEqual(len(Credential.credential_list),2)
 
 
 
