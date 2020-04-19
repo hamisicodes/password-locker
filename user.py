@@ -9,3 +9,11 @@ class User:
     def saveUser(self):
         User.users_list.append(self)
         
+    @classmethod
+
+    def user_exists(cls,name,password):
+        for users in cls.users_list:
+            if users.username == name and users.password == password:
+                return True
+
+        return False

@@ -16,14 +16,23 @@ def save_user(user):
 
 def main():
     print('Hello Welcome to the PASSWORD LOCKER APP')
-    print('Use the short codes:\n')
-    print('#'*80)
-    print()
-    print('L -> to log into your existing PASSWORD LOCKER account')
-    print('C -> to create a new PASSWORD LOCKER account\n')
-    print('#'*80)
+    while True:
+            
+       
+        print('Use the short codes:\n')
+        print()
+        print('L -> To log into your existing PASSWORD LOCKER account')
+        print('C -> To create a new PASSWORD LOCKER account\n')
+        print('#'*80)
+        
+        short_code = input().lower().strip()
+        
+        if short_code == 'l':
 
-
+            username = input('Enter your username')
+            password = input('Enter your password')
+            
+        
 
 
 
