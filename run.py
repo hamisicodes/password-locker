@@ -41,6 +41,31 @@ def display_credentials():
 def delete_credential(credential):
     credential.delete_credential()
 
+def search_credential(name):
+    return Credential.search_account(name)
+
+
+def credential_exists(name):
+    return Credential.credential_exist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def main():
     print('Hello Welcome to the PASSWORD LOCKER APP')
@@ -51,6 +76,8 @@ def main():
         print()
         print('L -> To log into your existing PASSWORD LOCKER account')
         print('C -> To create a new PASSWORD LOCKER account\n')
+        print('x -> To exit app\n')
+
         print('#'*80)
         
         short_code = input().lower().strip()
@@ -67,7 +94,7 @@ def main():
 
             username = input('Enter your username\n')
             password = input('Enter your password\n')
-            
+            print('\n')
             user_exists = check_user(username,password)
             if user_exists:
         
@@ -101,32 +128,50 @@ def main():
                                 print('Invalid response type Y to agree and N to disagree')
                                 continue
                         save_credential(create_credential_account(cred_account,cred_password,cred_username))
-                        print(f'.......credential for {cred_account} has been added\n...........')
+                        print(f'-----------------------credential for {cred_account} has been added----------------------------')
                          
                     elif credential_codes == "dc":
                          if display_credentials():
                              print('Here is a list of all your credential accounts\n')
                              print('ACCOUNT\t\t\t USERNAME\t\t\t PASSWORD')
                              for credential in display_credentials():
-                                 print(f'{credential.account}\t\t\t {credential.username}\t\t\t\t {credential.password}')
+                                 print(f'Account:{credential.account}' , end = '---')
+                                 print(f'Username:{credential.username}' , end = '--- ')
+                                 print(f'Password:{credential.password}')
+                                 print('\n')
 
                          else:
                              print('\n')
-                             print('You dont seem to have any credentials accounts yet\n')
+                             print('-------------------You dont seem to have any credentials accounts yet-----------------------\n')
 
                     elif credential_codes == "dd":
                         if display_credentials():
                             print('Enter the credential account to delete')
-                            account_name = input()
-                            
+                            account_name = input().lower
+                            if credential_exists(account_name):
+                                searched_credential = search_credential(account_name)
+                                delete_credential(searched_credential)
+                                print(f'Successfully deleted your {account_name} credential accountn')
+                                
+                            else:
+                                print('Credential account does not even exist')
+
+                        else:
+                            print('---------------------Sorry You have no credential account---------------------\n')
+
+
+            else:
+                print('-----------User not found or Incorect login details--------------------\n')
 
 
 
 
+        elif short_code == 'x':
+            print('------BYE-------')
 
 
-
-
+        else:
+            print("I really didn't get that. Please use the short codes\n")
 
 
 
