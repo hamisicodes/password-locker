@@ -9,6 +9,10 @@ def create_user_account(user_name,passcode):
 def save_user(user):
     user.save_user()
 
+def check_user(user_name,passcode):
+    user_found = User.user_exists(user_name,passcode)
+    return user_found
+
 
 
 

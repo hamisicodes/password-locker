@@ -40,8 +40,17 @@ class testUser(unittest.TestCase):
         another_user.saveUser()
         self.assertEqual(len(User.users_list),2)
 
-    
+    def test_user_exists(self):
 
+        self.new_user.saveUser()
+        another_user = User("salim","java")
+        another_user.saveUser()
+
+        userfound = User.user_exists("salim","java")
+        another_user_found =User.user_exists("Hamisi","python")
+
+        self.assertTrue(userfound)
+        self.assertTrue(another_user_found)
 
 
 
