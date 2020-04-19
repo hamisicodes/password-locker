@@ -7,5 +7,5 @@ class User:
         self.password = password
 
     def saveUser(self):
-        User.users_list.append(User)
+        User.users_list.append(self)
         

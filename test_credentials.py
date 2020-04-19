@@ -33,6 +33,13 @@ class test_credential(unittest.TestCase):
         self.assertEqual(Credential.displayCredentials(),Credential.credential_list)
 
 
+    def test_delete_credential(self):
+        self.new_credential.save_credentials()
+        another_credential = Credential("facebook","facebook001","salim")
+        another_credential.save_credentials()
+
+        self.new_credential.delete_credential()
+        self.assertEqual(len(Credential.credential_list),1)
 
 
 if __name__ == '__main__':
