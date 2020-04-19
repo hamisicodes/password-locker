@@ -27,6 +27,7 @@ def save_credential(credential):
     credential.save_credential()
 
 def create_password():
+    password = ''
     vowel = ['a','e','i','o','u']
     conso = "BCDFGHJKLMNOO"
     for x in range(6):
@@ -76,13 +77,16 @@ def main():
                         while True:
                             response  = input().lower.strip()
                             if response == 'y':
-                                pass
+                                cred_password = create_password()
+                                break
                             elif response == 'n':
-                                pass
+                                cred_password = input()
+                                break
                             else:
-                                print('Invalid response')
+                                print('Invalid response type Y to agree and N to disagree')
                                 continue
-
+                        save_credential(create_credential_account(cred_account,cred_username,cred_password))
+                        print(f'credential for {cred_account} has been added\n')
                          
                         
 
