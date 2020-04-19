@@ -38,6 +38,8 @@ def create_password():
 def display_credentials():
     return Credential.displayCredentials()
 
+def delete_credential(credential):
+    credential.delete_credential()
 
 
 def main():
@@ -75,7 +77,7 @@ def main():
                     print()
                     print('cc -> To create a new credentials account')
                     print('dc -> To display all credentials\n')
-                    print('dc -> To search a particular credential\n')
+                    print('dd -> To delete a credential\n')
                     print('#'*80)
 
                     credential_codes = input().lower().strip()
@@ -98,7 +100,7 @@ def main():
                             else:
                                 print('Invalid response type Y to agree and N to disagree')
                                 continue
-                        save_credential(create_credential_account(cred_account,cred_username,cred_password))
+                        save_credential(create_credential_account(cred_account,cred_password,cred_username))
                         print(f'.......credential for {cred_account} has been added\n...........')
                          
                     elif credential_codes == "dc":
@@ -106,13 +108,17 @@ def main():
                              print('Here is a list of all your credential accounts\n')
                              print('ACCOUNT\t\t\t USERNAME\t\t\t PASSWORD')
                              for credential in display_credentials():
-                                 print(f'{credential.account}-----{credential.username}--------{credential.password}')
+                                 print(f'{credential.account}\t\t\t {credential.username}\t\t\t\t {credential.password}')
 
                          else:
                              print('\n')
-                             print('You dont seem to have any credentials accounts yet ')
+                             print('You dont seem to have any credentials accounts yet\n')
 
-
+                    elif credential_codes == "dd":
+                        if display_credentials():
+                            print('Enter the credential account to delete')
+                            account_name = input()
+                            
 
 
 
