@@ -51,20 +51,6 @@ def credential_exists(name):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 """
 Main function
 """
