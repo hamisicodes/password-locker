@@ -83,10 +83,12 @@ def main():
         print('#'*80)
         
         short_code = input().lower().strip()
+
         if short_code =='c':
-            username = input('What username should be assigned to your password locker accunt?\n')
+
+            username = input('What username should be assigned to your PASSWORD LOCKER account?\n')
             password = input('Enter password\n')
-            print('Creating Your passwordlocker account.......')
+            print('Creating Your PASSWORD LOCKER account.......')
             new_user = create_user_account(username,password)
 
             save_user(new_user)
@@ -138,22 +140,22 @@ def main():
                              print('Here is a list of all your credential accounts\n')
                              
                              for credential in display_credentials():
-                                 print(f'Account:{credential.account}' , end = '---')
-                                 print(f'Username:{credential.username}' , end = '--- ')
+                                 print(f'Account:{credential.account}' , end = '----------')
+                                 print(f'Username:{credential.username}' , end = '--------- ')
                                  print(f'Password:{credential.password}')
                                  print('\n')
                         else:
-                             print('----------You dont seem tohave any credentials at this time')
+                             print('----------You dont seem to have any credentials at this time---------------\n')
 
 
                     elif credential_codes == "dd":
                         if display_credentials():
                             print('Enter the credential account to delete')
-                            account_name = input().lower
+                            account_name = input().lower()
                             if credential_exists(account_name):
                                 found_credential = search_credential(account_name)
-                                found_credential.delete_credential()
-                                print(f'Successfully deleted your {account_name} credential accountn')
+                                delete_credentials(found_credential)
+                                print(f'Successfully deleted your {account_name} credential account\n')
                                 
                             else:
                                 print('Credential account does not even exist')
