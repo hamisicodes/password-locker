@@ -38,7 +38,7 @@ def create_password():
 def display_credentials():
     return Credential.displayCredentials()
 
-def delete_credential(credential):
+def delete_credentials(credential):
     credential.delete_credential()
 
 def search_credential(name):
@@ -65,7 +65,9 @@ def credential_exists(name):
 
 
 
-
+"""
+Main function
+"""
 
 def main():
     print('Hello Welcome to the PASSWORD LOCKER APP')
@@ -131,26 +133,26 @@ def main():
                         print(f'-----------------------credential for {cred_account} has been added----------------------------')
                          
                     elif credential_codes == "dc":
-                         if display_credentials():
+
+                        if display_credentials():
                              print('Here is a list of all your credential accounts\n')
-                             print('ACCOUNT\t\t\t USERNAME\t\t\t PASSWORD')
+                             
                              for credential in display_credentials():
                                  print(f'Account:{credential.account}' , end = '---')
                                  print(f'Username:{credential.username}' , end = '--- ')
                                  print(f'Password:{credential.password}')
                                  print('\n')
+                        else:
+                             print('----------You dont seem tohave any credentials at this time')
 
-                         else:
-                             print('\n')
-                             print('-------------------You dont seem to have any credentials accounts yet-----------------------\n')
 
                     elif credential_codes == "dd":
                         if display_credentials():
                             print('Enter the credential account to delete')
                             account_name = input().lower
                             if credential_exists(account_name):
-                                searched_credential = search_credential(account_name)
-                                delete_credential(searched_credential)
+                                found_credential = search_credential(account_name)
+                                found_credential.delete_credential()
                                 print(f'Successfully deleted your {account_name} credential accountn')
                                 
                             else:
@@ -167,7 +169,7 @@ def main():
 
 
         elif short_code == 'x':
-            print('------BYE-------')
+            print('------BYE-------\n')
 
 
         else:
